@@ -1,0 +1,15 @@
+PRODUCT BACKLOG 02:
+
+01.- Yo como admin quiero recuperar los datos guardados para tener unos datos iniciales de partida
+02.- Yo como usuario quiero tener un listado de todos los videojuegos para mostrar los datos
+03.- Yo como admin quiero poder modificar la información de un videojuego para tenerlo actualizado
+04.- Yo como admin quiero añadir otro videojuego a la lista para actualizarla
+05.- Yo como admin quiero borrar un videojuego de la lista para actualizarla
+06.- Yo como usuario quiero tener un listado de editores (Publisher) para poder filtrar los videojuegos
+07.- Yo como usuario quiero tener un listado de juegos por géneros para poder filtrar los videojuegos
+08.- Yo como usuario quiero tener un listado de juegos del siglo XX para poder filtrar los videojuegos
+09.- Yo como usuario quiero tener un listado de juegos aparecidos en años pares para poder filtrar los videojuegos
+10.- Yo como usuario quiero tener un listado de juegos con media de ventas en Europa por encima de la media en Europa para poder filtrar los videojuegos
+11.- Yo como usuario quiero tener un listado de juegos para las consolas de Nintendo para poder filtrar los videojuegos
+12.- Yo como usuario quiero buscar un videojuego filtrando por su nombre para conocer los detalles
+13.- Yo como usuario quiero buscar el videojuego más antiguo filtrando por la fecha para conocer los detalles
