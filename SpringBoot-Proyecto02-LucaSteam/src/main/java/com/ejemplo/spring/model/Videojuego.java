@@ -46,9 +46,15 @@ public class Videojuego {
 	}		
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	public int getId() {
+=======
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	public Long getId() {
+>>>>>>> 992b8aeb4f391163faa908a61568f0a75746ea25
 		return id;
 	}
 

@@ -36,8 +36,8 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 	}
 
 	@Override
-	public List<Videojuego> findByUsername(String username) {
-		return repo.findByUsername(username);
+	public List<Videojuego> findByUsername(String name) {
+		return repo.findByUsername(name);
 	}
 
 }
