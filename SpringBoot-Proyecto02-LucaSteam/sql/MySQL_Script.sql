@@ -6,7 +6,7 @@ CREATE TABLE `videojuegos` (
 <<<<<<< HEAD
   `Rank` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `year` int(45) NOT NULL,
+  `year` date(45) NOT NULL,
   `genre` varchar(45) NOT NULL,
   `platform` varchar(45) NOT NULL,
   `publisher` varchar(45) NOT NULL,
