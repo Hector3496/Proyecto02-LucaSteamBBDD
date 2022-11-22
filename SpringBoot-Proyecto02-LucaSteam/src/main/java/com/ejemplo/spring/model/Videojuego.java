@@ -1,8 +1,5 @@
 package com.ejemplo.spring.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 @Entity
 @Table(name="videojuegos")
 public class Videojuego {
@@ -20,9 +15,9 @@ public class Videojuego {
 	//datos que aparecen en la documentacion
 	private int id;
 	@Size(min = 0, max = 30)
-	private String Rank;
+	private String rango;
 	private String name;
-	private Date year;
+	private String year;
 	private String genre;
 	private String platform;
 	private String publisher;
@@ -32,11 +27,11 @@ public class Videojuego {
 		super();
 	}	
 
-	public Videojuego(int id, @Size(min = 0, max = 30) String Rank, String name, Date year, String genre, String platform,
+	public Videojuego(int id, @Size(min = 0, max = 30) String rango, String name, String year, String genre, String platform,
 			String publisher, double EU_Sales) {
 		super();
 		this.id = id;
-		this.Rank = Rank;
+		this.rango = rango;
 		this.name = name;
 		this.year = year;
 		this.genre = genre;
@@ -48,7 +43,6 @@ public class Videojuego {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	
 	public int getId() {
 		return id;
 	}
@@ -57,12 +51,12 @@ public class Videojuego {
 		this.id = id;
 	}
 
-	public String getRank() {
-		return Rank;
+	public String getRango() {
+		return rango;
 	}
 
-	public void setRank(String rank) {
-		Rank = rank;
+	public void setRango(String rang) {
+		rango = rang;
 	}
 
 	public String getName() {
@@ -73,11 +67,11 @@ public class Videojuego {
 		this.name = name;
 	}
 
-	public Date getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(Date year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -115,8 +109,7 @@ public class Videojuego {
 
 	@Override
 	public String toString() {
-		String fecha = new SimpleDateFormat("dd-MM-yyyy").format(getYear());
-		return "Videojuego [id= " + id + ", Rank= " + Rank + ", Name= " + name + ", Year= " + year + ", Genre= " + genre
+		return "Videojuego [id= " + id + ", Rango= " + rango + ", Name= " + name + ", Year= " + year + ", Genre= " + genre
 				+ ", Platform= " + platform + ", Publisher= " + publisher + ", EU_Sales= " + EU_Sales + "]";
 	}		
 }

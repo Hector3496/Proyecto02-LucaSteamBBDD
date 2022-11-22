@@ -11,7 +11,7 @@ public interface VideojuegoService {
 
 	public Optional<Videojuego> findById(int id);
 	
-	public void save(Videojuego user);
+	public void save(Videojuego juego);
 	
 	public void deleteById(int id);
 	
