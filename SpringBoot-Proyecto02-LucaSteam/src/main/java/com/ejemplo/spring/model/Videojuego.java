@@ -3,7 +3,11 @@ package com.ejemplo.spring.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -14,71 +18,58 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class Videojuego {
 
 	//datos que aparecen en la documentacion
-	@Schema(name = "id",
-			description = "Identificación único para el videojuego",
-			example = "1",
-			required = true)
-	private Long id;
+	private int id;
 	@Size(min = 0, max = 30)
-	private String orden;
-	private String nombre;
+	private String Rank;
+	private String name;
 	private Date year;
-	private String genero;
-	private String plataforma;
-	private String editor;
-	private double ventas;
+	private String genre;
+	private String platform;
+	private String publisher;
+	private double EU_Sales;
 	
 	public Videojuego() {
-		
-	}
-	
-	public Videojuego(@Size(min = 0, max = 30) String orden, String nombre, Date year, String genero, String plataforma,
-			String editor, double ventas) {
 		super();
-		this.orden = orden;
-		this.nombre = nombre;
-		this.year = year;
-		this.genero = genero;
-		this.plataforma = plataforma;
-		this.editor = editor;
-		this.ventas = ventas;
 	}	
 
-	public Videojuego(Long id, @Size(min = 0, max = 30) String orden, String nombre, Date year, String genero,
-			String plataforma, String editor, double ventas) {
+	public Videojuego(int id, @Size(min = 0, max = 30) String Rank, String name, Date year, String genre, String platform,
+			String publisher, double EU_Sales) {
 		super();
 		this.id = id;
-		this.orden = orden;
-		this.nombre = nombre;
+		this.Rank = Rank;
+		this.name = name;
 		this.year = year;
-		this.genero = genero;
-		this.plataforma = plataforma;
-		this.editor = editor;
-		this.ventas = ventas;
-	}	
+		this.genre = genre;
+		this.platform = platform;
+		this.publisher = publisher;
+		this.EU_Sales = EU_Sales;
+	}		
 
-	public Long getId() {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getOrden() {
-		return orden;
+	public String getRank() {
+		return Rank;
 	}
 
-	public void setOrden(String orden) {
-		this.orden = orden;
+	public void setRank(String rank) {
+		Rank = rank;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getYear() {
@@ -89,42 +80,42 @@ public class Videojuego {
 		this.year = year;
 	}
 
-	public String getGenero() {
-		return genero;
+	public String getGenre() {
+		return genre;
 	}
 
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
-	public String getPlataforma() {
-		return plataforma;
+	public String getPlatform() {
+		return platform;
 	}
 
-	public void setPlataforma(String plataforma) {
-		this.plataforma = plataforma;
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
 
-	public String getEditor() {
-		return editor;
+	public String getPublisher() {
+		return publisher;
 	}
 
-	public void setEditor(String editor) {
-		this.editor = editor;
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
-	public double getVentas() {
-		return ventas;
+	public double getEU_Sales() {
+		return EU_Sales;
 	}
 
-	public void setVentas(double ventas) {
-		this.ventas = ventas;
-	}	
+	public void setEU_Sales(double eU_Sales) {
+		EU_Sales = eU_Sales;
+	}
 
 	@Override
 	public String toString() {
 		String fecha = new SimpleDateFormat("dd-MM-yyyy").format(getYear());
-		return "Videojuego [CurrentID=" + id + ", Orden= " + orden + ", Nombre= " + nombre + ", Year= " + year + ", Género= "
-				+ genero + ", Plataforma= " + plataforma + ", Editor= " + editor + ", Ventas= " + ventas + "]";
+		return "Videojuego [id= " + id + ", Rank= " + Rank + ", Name= " + name + ", Year= " + year + ", Genre= " + genre
+				+ ", Platform= " + platform + ", Publisher= " + publisher + ", EU_Sales= " + EU_Sales + "]";
 	}		
 }
