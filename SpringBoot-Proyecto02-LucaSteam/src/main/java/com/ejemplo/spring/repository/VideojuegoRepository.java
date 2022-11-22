@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.ejemplo.spring.model.Videojuego;
 
 public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer> {
-	
-	@Query("FROM User where username =?1")
-	List<Videojuego> findByUsername(String username);
+		
+	@Query("FROM Videojuego where nombre =?1")
+	List<Videojuego> findByUsername(String name);
 }

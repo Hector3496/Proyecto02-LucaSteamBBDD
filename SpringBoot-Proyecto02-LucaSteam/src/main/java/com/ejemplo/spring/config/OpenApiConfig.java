@@ -20,8 +20,8 @@ public class OpenApiConfig {
                 .info(new Info().title("Student API")
                 .description("Documentación de la Student API")
                 .version("v1.0")
-                .contact(new Contact().name("Antonio Santos").
-                        url("https://antoniosantos.es").email("antonio@santos.es"))
+                .contact(new Contact().name("Grupo 3").
+                        url("https://grupo3.es").email("grupo@tres.es"))
                 .license(new License().name("LICENSE").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
                 .description("Descripcion del proyecto")
