@@ -21,24 +21,12 @@ public class Videojuego {
 	private String genre;
 	private String platform;
 	private String publisher;
-	private double EU_Sales;
+	private String eu_Sales;
 	
 	public Videojuego() {
 		super();
+		System.out.println(" ----- Constructor vacio");
 	}	
-
-	public Videojuego(int id, @Size(min = 0, max = 30) String rango, String name, String year, String genre, String platform,
-			String publisher, double EU_Sales) {
-		super();
-		this.id = id;
-		this.rango = rango;
-		this.name = name;
-		this.year = year;
-		this.genre = genre;
-		this.platform = platform;
-		this.publisher = publisher;
-		this.EU_Sales = EU_Sales;
-	}		
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -99,17 +87,17 @@ public class Videojuego {
 		this.publisher = publisher;
 	}
 
-	public double getEU_Sales() {
-		return EU_Sales;
+	public String getEU_Sales() {
+		return this.eu_Sales;
 	}
 
-	public void setEU_Sales(double eU_Sales) {
-		EU_Sales = eU_Sales;
+	public void setEU_Sales(String EU_Sales) {
+		this.eu_Sales = EU_Sales;
 	}
 
 	@Override
 	public String toString() {
 		return "Videojuego [id= " + id + ", Rango= " + rango + ", Name= " + name + ", Year= " + year + ", Genre= " + genre
-				+ ", Platform= " + platform + ", Publisher= " + publisher + ", EU_Sales= " + EU_Sales + "]";
+				+ ", Platform= " + platform + ", Publisher= " + publisher + ", EU_Sales= " + eu_Sales + "]";
 	}		
 }

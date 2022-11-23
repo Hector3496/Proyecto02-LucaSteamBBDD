@@ -15,5 +15,5 @@ public interface VideojuegoService {
 	
 	public void deleteById(int id);
 	
-	public List<Videojuego> findByUsername(String username);
+	public List<Videojuego> findByName(String name);
 }

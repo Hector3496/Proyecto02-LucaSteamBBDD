@@ -9,6 +9,6 @@ CREATE TABLE `videojuegos` (
   `genre` varchar(45),
   `platform` varchar(45),
   `publisher` varchar(45),
-  `EU_Sales` double,
+  `eu_Sales` varchar(45),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1

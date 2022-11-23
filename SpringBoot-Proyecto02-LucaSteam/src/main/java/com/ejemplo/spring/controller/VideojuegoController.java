@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ejemplo.spring.model.Videojuego;
 import com.ejemplo.spring.service.VideojuegoService;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/videojuegos")
@@ -32,9 +31,15 @@ public class VideojuegoController {
 		return srv.findAll();
 	}
 	
-	@GetMapping("/byname/{name}")
-	public List<Videojuego> readByUsername(@PathVariable String name) {
-		return srv.findByUsername(name);
+	@PostMapping
+	public void saveVideojuego(@RequestBody Videojuego juego) {
+		logger.info("----- " + juego);
+		srv.save(juego);
+	}
+	
+	@GetMapping("/byName/{name}")
+	public List<Videojuego> readByNname(@PathVariable String name) {
+		return srv.findByName(name);
 	}
 	
 	@GetMapping("/{id}")
@@ -52,8 +57,5 @@ public class VideojuegoController {
 		srv.deleteById(id);
 	}
 	
-	@PostMapping
-	public void addVideojuego(@RequestBody Videojuego juego) {
-		srv.save(juego);
-	}
+
 }
