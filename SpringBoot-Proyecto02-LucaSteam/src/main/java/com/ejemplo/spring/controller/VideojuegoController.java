@@ -4,12 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,11 +37,6 @@ public class VideojuegoController {
 		return srv.findAll();
 	}
 	
-	@GetMapping("/editor/{publisher}")
-	public List<Videojuego> editorByName(@PathVariable String publisher){
-		return srv.editorByName(publisher);
-	}
-	
 	@PostMapping
 	public void saveVideojuego(@RequestBody Videojuego juego) {
 		logger.info("----- " + juego);
@@ -58,11 +53,20 @@ public class VideojuegoController {
 	public List<Videojuego> readByNname(@PathVariable String name) {
 		return srv.findByName(name);
 	}*/
-		
+	
 	@GetMapping("/{id}")
 	public Videojuego readVideojuego(@PathVariable int id) {
 		logger.info("Ha mostrado el juego con id " + id + " de la base de datos");
 		return srv.findById(id).orElseThrow(VideojuegoNotFoundException::new);
+	}
+	@GetMapping("/centuryXX")
+	public List<Videojuego> readGamesCenturyXX(){
+		return srv.readGamesXX();
+	}
+	
+	@GetMapping("/editor/{publisher}")
+	public List<Videojuego> editorByName(@PathVariable String publisher){
+		return srv.editorByName(publisher);
 	}
 	
 	@GetMapping("/byName/{genre}")
@@ -81,8 +85,6 @@ public class VideojuegoController {
 		srv.deleteById(id);
 		logger.info("Ha borrado el juego con id " + id + " de la base de datos");
 	}
-	
-	
 	
 	private void importarFichero() {
 		File fich1 = new File("vgsales.csv");
@@ -120,11 +122,17 @@ public class VideojuegoController {
 			String rango= Integer.toString(n);
 			v1.setRango(rango);
 			v1.setName(list[1]);
-			v1.setYear(list[2]);
-			v1.setGenre(list[3]);
-			v1.setPlatform(list[4]);
+			int m;
+			try{
+				m = Integer.parseInt(list[3]);
+				v1.setYear(m);
+			} catch(NumberFormatException e) {
+				v1.setYear(0);
+			}
+			v1.setGenre(list[4]);
+			v1.setPlatform(list[2]);
 			v1.setPublisher(list[5]);
-			v1.setEU_Sales(list[6]);
+			v1.setEU_Sales(list[7]);
 			line = br.readLine();
 			srv.save(v1);
 		}
