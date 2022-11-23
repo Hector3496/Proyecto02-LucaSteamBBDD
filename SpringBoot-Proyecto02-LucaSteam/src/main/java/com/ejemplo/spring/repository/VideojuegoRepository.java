@@ -13,4 +13,7 @@ public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer>
 		
 	@Query("FROM Videojuego where nombre =?1")
 	List<Videojuego> findByName(String name);
+	
+	@Query("FROM Videojuego where publisher =?1")
+	List<Videojuego> editorByName(String publisher);
 }

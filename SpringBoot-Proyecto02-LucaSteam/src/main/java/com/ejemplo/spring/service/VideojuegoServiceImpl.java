@@ -40,4 +40,10 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 		return repo.findByName(name);
 	}
 
-}
+	@Override
+	public List<Videojuego> editorByName(String publisher){
+		return repo.editorByName(publisher);		
+		}
+	}
+
+		
