@@ -14,7 +14,6 @@ public class Videojuego {
 
 	//datos que aparecen en la documentacion
 	private int id;
-	@Size(min = 0, max = 30)
 	private String rango;
 	private String name;
 	private String year;
@@ -25,23 +24,8 @@ public class Videojuego {
 	
 	public Videojuego() {
 		super();
-		System.out.println(" ----- Constructor vacio");
-		System.out.println(toString());
 	}	
-
-	public Videojuego(int id, @Size(min = 0, max = 30) String rango, String name, String year, String genre,
-			String platform, String publisher, String eu_Sales) {
-		super();
-		this.id = id;
-		this.rango = rango;
-		this.name = name;
-		this.year = year;
-		this.genre = genre;
-		this.platform = platform;
-		this.publisher = publisher;
-		this.eu_Sales = eu_Sales;
-	}
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")

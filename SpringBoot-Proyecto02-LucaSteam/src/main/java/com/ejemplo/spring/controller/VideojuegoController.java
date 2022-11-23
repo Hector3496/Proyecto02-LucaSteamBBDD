@@ -1,5 +1,9 @@
 package com.ejemplo.spring.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,6 +32,7 @@ public class VideojuegoController {
 
 	@GetMapping
 	public List<Videojuego> readVideojuegos(){
+		logger.info("Va a motrar todos los juegos de la base de datos");
 		return srv.findAll();
 	}
 	
@@ -35,32 +40,80 @@ public class VideojuegoController {
 	public void saveVideojuego(@RequestBody Videojuego juego) {
 		logger.info("----- " + juego);
 		srv.save(juego);
+		logger.info("Ha guardado el juego " + juego.getName() + " en la base de datos");
 	}
 	@PostMapping("/importar")
 	public void saveBBDD() {
-		srv.importarFichero();
-		logger.info("Ha metido todos los juegos en la base de datos");
+		importarFichero();
+		logger.info("Ha importado todos los juegos de la base de datos");
 	}
 	
-	@GetMapping("/byName/{name}")
+	/*@GetMapping("/byName/{name}")
 	public List<Videojuego> readByNname(@PathVariable String name) {
 		return srv.findByName(name);
-	}
+	}*/
 	
 	@GetMapping("/{id}")
 	public Videojuego readVideojuego(@PathVariable int id) {
+		logger.info("Ha mostrado el juego con id " + id + " de la base de datos");
 		return srv.findById(id).orElseThrow(VideojuegoNotFoundException::new);
 	}
 	
 	@PutMapping
 	public void uploadVideojuego(@RequestBody Videojuego juego) {
 		srv.save(juego);
+		logger.info("Ha actualizado el juego " + juego.getName() + " de la base de datos");
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteVideojuego(@PathVariable int id) {
 		srv.deleteById(id);
+		logger.info("Ha borrado el juego con id " + id + " de la base de datos");
 	}
 	
-
+	private void importarFichero() {
+		File fich1 = new File("vgsales.csv");
+		BufferedReader br = null;
+		String line = null;
+		if(fich1.exists()) {
+			try {
+				br = new BufferedReader(new FileReader(fich1));
+				BBDDfromfile(line, br);
+			} catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("El fichero no existe");
+			} finally {
+				try {
+					if(null != br) {
+						br.close();
+					}
+				} catch(Exception c) {
+					c.printStackTrace();
+				}
+			}
+		}
+	}
+	private void BBDDfromfile(String line, BufferedReader br) throws IOException {
+		line = br.readLine();
+		line = br.readLine();
+		//-------------------
+		while(line != null) {
+			Videojuego v1 = new Videojuego();
+			String[] list = line.split(",");
+			String num;
+			num = list[0];
+			int n = Integer.parseInt(num);
+			n++;
+			String rango= Integer.toString(n);
+			v1.setRango(rango);
+			v1.setName(list[1]);
+			v1.setYear(list[2]);
+			v1.setGenre(list[3]);
+			v1.setPlatform(list[4]);
+			v1.setPublisher(list[5]);
+			v1.setEU_Sales(list[6]);
+			line = br.readLine();
+			srv.save(v1);
+		}
+	}
 }

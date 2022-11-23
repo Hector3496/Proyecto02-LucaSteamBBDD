@@ -2,7 +2,6 @@ package com.ejemplo.spring.repository;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,11 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.ejemplo.spring.model.Videojuego;
 
 @Repository
-@Primary
 public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer> {
-	
-	public void importarFichero();
-	
+		
 	@Query("FROM Videojuego where nombre =?1")
 	List<Videojuego> findByName(String name);
 }

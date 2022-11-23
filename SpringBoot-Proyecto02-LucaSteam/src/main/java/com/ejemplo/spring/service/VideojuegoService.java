@@ -17,5 +17,4 @@ public interface VideojuegoService {
 	
 	public List<Videojuego> findByName(String name);
 	
-	public void importarFichero();
 }
