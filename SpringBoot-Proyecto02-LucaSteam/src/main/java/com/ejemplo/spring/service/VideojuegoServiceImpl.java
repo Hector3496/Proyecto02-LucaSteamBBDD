@@ -1,6 +1,7 @@
 package com.ejemplo.spring.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 	@Override
 	public List<Videojuego> findByName(String name) {
 		return repo.findByName(name);
+	}
+	
+	@Override
+	public List<Videojuego> genreByName(String genre) {
+		return repo.genreByName(genre);
 	}
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,11 +53,16 @@ public class VideojuegoController {
 	public List<Videojuego> readByNname(@PathVariable String name) {
 		return srv.findByName(name);
 	}*/
-	
+		
 	@GetMapping("/{id}")
 	public Videojuego readVideojuego(@PathVariable int id) {
 		logger.info("Ha mostrado el juego con id " + id + " de la base de datos");
 		return srv.findById(id).orElseThrow(VideojuegoNotFoundException::new);
+	}
+	
+	@GetMapping("/byName/{genre}")
+	public List<Videojuego> genreByName(@PathVariable String genre) {
+		return srv.genreByName(genre);
 	}
 	
 	@PutMapping

@@ -17,4 +17,6 @@ public interface VideojuegoService {
 	
 	public List<Videojuego> findByName(String name);
 	
+	public List<Videojuego> genreByName(String genre);
+	
 }
