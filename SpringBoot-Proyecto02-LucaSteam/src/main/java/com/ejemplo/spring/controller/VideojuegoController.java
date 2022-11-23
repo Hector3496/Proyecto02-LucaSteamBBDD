@@ -36,6 +36,11 @@ public class VideojuegoController {
 		logger.info("----- " + juego);
 		srv.save(juego);
 	}
+	@PostMapping("/importar")
+	public void saveBBDD() {
+		srv.importarFichero();
+		logger.info("Ha metido todos los juegos en la base de datos");
+	}
 	
 	@GetMapping("/byName/{name}")
 	public List<Videojuego> readByNname(@PathVariable String name) {

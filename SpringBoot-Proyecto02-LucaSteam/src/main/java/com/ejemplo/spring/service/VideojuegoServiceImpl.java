@@ -40,4 +40,9 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 		return repo.findByName(name);
 	}
 
+	@Override
+	public void importarFichero() {
+		repo.importarFichero();
+	}
+
 }

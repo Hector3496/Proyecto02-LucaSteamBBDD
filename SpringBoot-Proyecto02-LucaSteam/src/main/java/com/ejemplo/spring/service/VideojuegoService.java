@@ -16,4 +16,6 @@ public interface VideojuegoService {
 	public void deleteById(int id);
 	
 	public List<Videojuego> findByName(String name);
+	
+	public void importarFichero();
 }
