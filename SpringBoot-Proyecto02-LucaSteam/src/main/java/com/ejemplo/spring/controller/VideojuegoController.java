@@ -37,6 +37,11 @@ public class VideojuegoController {
 		return srv.findAll();
 	}
 	
+	@GetMapping("/editor/{publisher}")
+	public List<Videojuego> editorByName(@PathVariable String publisher){
+		return srv.editorByName(publisher);
+	}
+	
 	@PostMapping
 	public void saveVideojuego(@RequestBody Videojuego juego) {
 		logger.info("----- " + juego);
@@ -76,6 +81,8 @@ public class VideojuegoController {
 		srv.deleteById(id);
 		logger.info("Ha borrado el juego con id " + id + " de la base de datos");
 	}
+	
+	
 	
 	private void importarFichero() {
 		File fich1 = new File("vgsales.csv");
