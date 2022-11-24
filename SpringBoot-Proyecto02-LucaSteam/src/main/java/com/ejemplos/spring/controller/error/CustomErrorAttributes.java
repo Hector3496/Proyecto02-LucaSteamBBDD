@@ -30,8 +30,11 @@ public class CustomErrorAttributes extends DefaultErrorAttributes {
 		Object timestamp = errorAttributes.get("timestamp");
 		if (timestamp == null) { 
 			errorAttributes.put("timestamp", dateFormat.format(new Date()));
+			errorAttributes.put("infoadicional", "-------------------eres un tonto");
+
 		} else { 
 			errorAttributes.put("timestamp", dateFormat.format((Date) timestamp));
+			errorAttributes.put("infoadicional", "-------------------eres un lechón");
 		}
 
 		errorAttributes.remove("trace");

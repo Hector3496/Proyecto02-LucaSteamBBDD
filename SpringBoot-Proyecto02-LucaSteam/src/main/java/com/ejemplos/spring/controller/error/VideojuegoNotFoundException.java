@@ -5,10 +5,10 @@ public class VideojuegoNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public VideojuegoNotFoundException() { 
-		super("Epic Fail: No existe el estudiante");
+		super("Epic Fail: No existe el videojuego");
 	}
 	public VideojuegoNotFoundException(Long id) {
-		super("Epic Fail: No existe el estudiante "+id);
+		super("Epic Fail: No existe el videojuego "+id);
 	}	
 
 }

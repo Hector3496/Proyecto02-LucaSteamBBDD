@@ -88,6 +88,12 @@ public class VideojuegoController {
 		return srv.findByPublisher(publisher);
 	}	
 	
+	@GetMapping("/yearPares")
+	public List<Videojuego> yearPares(){
+		return srv.yearPares();
+	}	
+	
+	
 	@PutMapping
 	public void uploadVideojuego(@RequestBody Videojuego juego) {
 		srv.save(juego);
@@ -98,7 +104,7 @@ public class VideojuegoController {
 	public void deleteVideojuego(@PathVariable int id) {
 		srv.deleteById(id);
 		logger.info("Ha borrado el juego con id " + id + " de la base de datos");
-	}
+	}	
 	
 	private void importarFichero() {
 		File fich1 = new File("vgsales.csv");

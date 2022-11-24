@@ -28,4 +28,8 @@ public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer>
 	
 	@Query(value = "SELECT * FROM videojuegos where eu_Sales > (select avg(eu_Sales) FROM videojuegos)", nativeQuery = true)
     List<Videojuego> mediaVentas();
+	
+	@Query(value = "SELECT * FROM videojuegos where year%2=0 order by year", nativeQuery = true)
+    List<Videojuego> yearPares();
+	
 }

@@ -4,8 +4,8 @@ use videojuegosdb;
 CREATE TABLE `videojuegos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rango` varchar(45) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `year` varchar(45) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `year` int(4) NOT NULL,
   `genre` varchar(45) NOT NULL,
   `platform` varchar(45) NOT NULL,
   `publisher` varchar(45) NOT NULL,

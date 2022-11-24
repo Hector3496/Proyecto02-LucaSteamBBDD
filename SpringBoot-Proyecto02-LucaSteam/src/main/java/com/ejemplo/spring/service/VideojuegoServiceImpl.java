@@ -63,4 +63,9 @@ public class VideojuegoServiceImpl implements VideojuegoService {
     public List<Videojuego> mediaVentas() {
         return repo.mediaVentas();
     }
+
+	@Override
+	public List<Videojuego> yearPares() {
+		return repo.yearPares();
+	}
 }

@@ -28,4 +28,6 @@ public interface VideojuegoService {
 	public List<Videojuego> findByPublisher(String publisher);
 	
 	public List<Videojuego> mediaVentas();
+
+	public List<Videojuego> yearPares();
 }
