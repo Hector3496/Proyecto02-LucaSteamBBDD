@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -58,6 +59,26 @@ public class VideojuegoController {
 		logger.info("Ha mostrado el juego con id " + id + " de la base de datos");
 		return srv.findById(id).orElseThrow(VideojuegoNotFoundException::new);
 	}
+	@GetMapping("/centuryXX")
+	public List<Videojuego> readGamesCenturyXX(){
+		return srv.readGamesXX();
+	}
+	
+	@GetMapping("/editor/{publisher}")
+	public List<Videojuego> editorByName(@PathVariable String publisher){
+		return srv.editorByName(publisher);
+	}
+	
+	@GetMapping("/byName/{genre}")
+	public List<Videojuego> genreByName(@PathVariable String genre) {
+		return srv.genreByName(genre);
+	}
+	
+	@GetMapping("/editor/Nintendo")
+	public List<Videojuego> findByPublisher(String publisher){
+		publisher = "Nintendo";
+		return srv.findByPublisher(publisher);
+	}	
 	
 	@PutMapping
 	public void uploadVideojuego(@RequestBody Videojuego juego) {
@@ -107,11 +128,17 @@ public class VideojuegoController {
 			String rango= Integer.toString(n);
 			v1.setRango(rango);
 			v1.setName(list[1]);
-			v1.setYear(list[2]);
-			v1.setGenre(list[3]);
-			v1.setPlatform(list[4]);
+			int m;
+			try{
+				m = Integer.parseInt(list[3]);
+				v1.setYear(m);
+			} catch(NumberFormatException e) {
+				v1.setYear(0);
+			}
+			v1.setGenre(list[4]);
+			v1.setPlatform(list[2]);
 			v1.setPublisher(list[5]);
-			v1.setEU_Sales(list[6]);
+			v1.setEU_Sales(list[7]);
 			line = br.readLine();
 			srv.save(v1);
 		}

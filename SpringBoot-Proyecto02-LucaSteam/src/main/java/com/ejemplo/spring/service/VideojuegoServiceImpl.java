@@ -40,4 +40,22 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 		return repo.findByName(name);
 	}
 
+	@Override
+	public List<Videojuego> readGamesXX() {
+		return repo.readGamesXX();
+	}
+	@Override
+	public List<Videojuego> genreByName(String genre) {
+		return repo.genreByName(genre);
+	}
+
+	@Override
+	public List<Videojuego> editorByName(String publisher){
+		return repo.editorByName(publisher);		
+	}
+	
+	@Override
+	public List<Videojuego> findByPublisher(String publisher){
+		return repo.findByPublisher(publisher);
+	}
 }

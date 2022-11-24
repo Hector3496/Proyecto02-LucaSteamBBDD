@@ -19,7 +19,7 @@ public class Videojuego {
 	private int id;
 	private String rango;
 	private String name;
-	private String year;
+	private int year;
 	private String genre;
 	private String platform;
 	private String publisher;
@@ -56,11 +56,11 @@ public class Videojuego {
 		this.name = name;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 

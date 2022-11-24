@@ -1,0 +1,14 @@
+SPRING 02.-
+02.- HISTORIA DE USUARIO:
+
+Yo como usuario quiero tener un listado de juegos con media de ventas en Europa por encima de la media en Europa para poder filtrar los videojuegos
+
+01.- Crear el metodo mediaVentas() con la consulta en la capa Repository
+02.- Llamar al metodo mediaVentas() 
+	02.01.- en la clase VideojuegoServiceImpl para pasar la consulta de una capa a otra
+	02.02.- en la interface VideojuegoService para pasar la consulta de una capa a otra
+03.- Llamar al metodo mediaVentas() en la capa Controller
+	03.01.- Crear el metodo mediaVentas() en la clase VideojuegoController para llamar al metodo de la capa Services
+04.- Hacer mensaje personalizado para indicar la solucion/problema encontrado
+05.- Prueba unitaria01 - Comprobar que hace la media por encima de la media de Europa
+06.- Prueba unitaria02 - Comprobar que verdadero es verdadero
