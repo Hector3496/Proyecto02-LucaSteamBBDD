@@ -68,4 +68,10 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 	public List<Videojuego> yearPares() {
 		return repo.yearPares();
 	}
+
+	@Override
+	public List<Videojuego> mostrarYear(int year){
+		return repo.mostrarYear(year);
+
+	}
 }

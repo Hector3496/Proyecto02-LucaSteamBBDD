@@ -30,4 +30,7 @@ public interface VideojuegoService {
 	public List<Videojuego> mediaVentas();
 
 	public List<Videojuego> yearPares();
+	
+	public List<Videojuego> mostrarYear(int year);
+
 }

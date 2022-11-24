@@ -31,5 +31,8 @@ public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer>
 	
 	@Query(value = "SELECT * FROM videojuegos where year%2=0 order by year", nativeQuery = true)
     List<Videojuego> yearPares();
+
+	@Query("FROM Videojuego where year =?1")
+	List<Videojuego> mostrarYear(int year);
 	
 }
