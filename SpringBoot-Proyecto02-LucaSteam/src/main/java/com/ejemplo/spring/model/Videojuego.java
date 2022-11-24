@@ -17,13 +17,22 @@ public class Videojuego {
 
 	//datos que aparecen en la documentacion
 	private int id;
+	@NotEmpty(message = "Necesitamos que indiques un rango")
 	private String rango;
+	@NotEmpty(message = "El nombre no debe ser vacío")
 	private String name;
+	@Max(value = 2022)
+	@Positive
+	@Size(min=1, max=4)
 	private int year;
+	@NotEmpty(message = "El genero no debe ser vacío")
 	private String genre;
+	@NotEmpty(message = "La plataforma no debe ser vacío")
 	private String platform;
+	@NotEmpty(message = "El editor no debe ser vacío")
 	private String publisher;
-	private String eu_Sales;
+	@Positive
+	private double eu_Sales;
 	
 	public Videojuego() {
 		super();
@@ -88,11 +97,11 @@ public class Videojuego {
 		this.publisher = publisher;
 	}
 
-	public String getEU_Sales() {
+	public double getEU_Sales() {
 		return this.eu_Sales;
 	}
 
-	public void setEU_Sales(String EU_Sales) {
+	public void setEU_Sales(double EU_Sales) {
 		this.eu_Sales = EU_Sales;
 	}
 

@@ -21,8 +21,11 @@ public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer>
 	List<Videojuego> readGamesXX();
 	
 	@Query("FROM Videojuego where publisher =?1")
-	public List<Videojuego> findByPublisher(String publisher);
+	List<Videojuego> findByPublisher(String publisher);
 	
 	@Query("FROM Videojuego where nombre =?1")
 	List<Videojuego> findByName(String name);
+	
+	@Query(value = "SELECT * FROM videojuegos where eu_Sales > (select avg(eu_Sales) FROM videojuegos)", nativeQuery = true)
+    List<Videojuego> mediaVentas();
 }

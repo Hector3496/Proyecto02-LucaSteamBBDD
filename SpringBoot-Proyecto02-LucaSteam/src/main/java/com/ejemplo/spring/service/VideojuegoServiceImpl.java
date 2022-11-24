@@ -58,4 +58,9 @@ public class VideojuegoServiceImpl implements VideojuegoService {
 	public List<Videojuego> findByPublisher(String publisher){
 		return repo.findByPublisher(publisher);
 	}
+	
+	@Override
+    public List<Videojuego> mediaVentas() {
+        return repo.mediaVentas();
+    }
 }

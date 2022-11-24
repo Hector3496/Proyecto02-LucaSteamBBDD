@@ -24,8 +24,7 @@ public class OpenApiConfig {
                         url("https://grupo3.es").email("grupo@tres.es"))
                 .license(new License().name("LICENSE").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
-                .description("Proyecto de importar un CSV, listar, modificar, añadir, eliminar y listar"
-                		+ "diferentes busquedas")
+                .description("Proyecto de importar un CSV, Crear, Leer, Actualizar y Eliminar. Incluimos algunos listados de busquedas")
                 .url("http://localhost:8085/videojuegos"));
     }
 	

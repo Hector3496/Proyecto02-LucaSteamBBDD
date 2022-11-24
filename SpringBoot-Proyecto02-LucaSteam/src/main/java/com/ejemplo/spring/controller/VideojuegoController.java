@@ -52,6 +52,11 @@ public class VideojuegoController {
 		logger.info("Ha importado todos los juegos de la base de datos");
 	}
 	
+	@GetMapping("/mediaVentas")
+    public List<Videojuego> mediaVentas() {
+        return srv.mediaVentas();
+    }
+	
 	/*@GetMapping("/byName/{name}")
 	public List<Videojuego> readByNname(@PathVariable String name) {
 		return srv.findByName(name);
@@ -117,6 +122,8 @@ public class VideojuegoController {
 			}
 		}
 	}
+	
+	
 	private void BBDDfromfile(String line, BufferedReader br) throws IOException {
 		line = br.readLine();
 		line = br.readLine();
@@ -141,7 +148,8 @@ public class VideojuegoController {
 			v1.setGenre(list[4]);
 			v1.setPlatform(list[2]);
 			v1.setPublisher(list[5]);
-			v1.setEU_Sales(list[7]);
+			double s = Double.parseDouble(list[7]);
+            v1.setEU_Sales(s);
 			line = br.readLine();
 			srv.save(v1);
 		}
