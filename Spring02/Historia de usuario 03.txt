@@ -1,0 +1,14 @@
+SPRING 02.-
+03.- HISTORIA DE USUARIO:
+
+Yo como usuario quiero tener un listado de juegos para las consolas de Nintendo para poder filtrar los videojuegos
+
+01.- Crear el metodo findByPublisher(Nintendo) con la consulta en la capa Repository
+02.- Llamar al metodo findByPublisher(Nintendo)
+	02.01.- en la clase VideojuegoServiceImpl para pasar la consulta de una capa a otra
+	02.02.- en la interface VideojuegoService para pasar la consulta de una capa a otra
+03.- Llamar al metodo findByPublisher(Nintendo) en la capa Controller
+	03.01.- Crear el metodo findByPublisher(Nintendo) en la clase VideojuegoController para llamar al metodo de la capa Services
+04.- Hacer mensaje personalizado para indicar la solucion/problema encontrado
+05.- Prueba unitaria01 - Comprobar que no aparece ningun juego de otro publisher
+06.- Prueba unitaria02 - Comprobar que el archivo no este vacio
