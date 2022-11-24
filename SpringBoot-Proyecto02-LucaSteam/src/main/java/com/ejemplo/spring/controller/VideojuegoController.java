@@ -82,6 +82,12 @@ public class VideojuegoController {
 		return srv.genreByName(genre);
 	}
 	
+	@GetMapping("/mostrarYear/{year}")
+	public List<Videojuego> mostrarYear(@PathVariable int year) {
+		return srv.mostrarYear(year);
+	}
+	
+	
 	@GetMapping("/editor/Nintendo")
 	public List<Videojuego> findByPublisher(String publisher){
 		publisher = "Nintendo";
