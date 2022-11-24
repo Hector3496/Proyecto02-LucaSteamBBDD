@@ -15,17 +15,18 @@ import io.swagger.v3.oas.models.info.License;
 public class OpenApiConfig {
 	
     @Bean
-    public OpenAPI StudentOpenAPI() {
+    public OpenAPI VideojuegoOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("Student API")
-                .description("Documentación de la Student API")
+                .info(new Info().title("Videojuego API")
+                .description("Documentación del Videojuego API")
                 .version("v1.0")
                 .contact(new Contact().name("Grupo 3").
                         url("https://grupo3.es").email("grupo@tres.es"))
                 .license(new License().name("LICENSE").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
-                .description("Descripcion del proyecto")
-                .url("https://miproyecto.es"));
+                .description("Proyecto de importar un CSV, listar, modificar, añadir, eliminar y listar"
+                		+ "diferentes busquedas")
+                .url("http://localhost:8085/videojuegos"));
     }
 	
 

@@ -22,8 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ejemplo.spring.model.Videojuego;
 import com.ejemplo.spring.service.VideojuegoService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/videojuegos")
+@Tag(name = "videojuego", description = "the Videojuego API")
 public class VideojuegoController {
 
 	@Autowired

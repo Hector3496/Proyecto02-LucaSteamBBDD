@@ -31,13 +31,14 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 	@ExceptionHandler(VideojuegoNotFoundException.class) 
 	public void springHandleNotFound(HttpServletResponse response) throws IOException {
 		logger.info("------ VideojuegoNotFoundException() ");
-		
+			
 		response.sendError(HttpStatus.NOT_FOUND.value());
 	}
 	
 	@ExceptionHandler(ConstraintViolationException.class) 
 	public void constraintViolationException(HttpServletResponse response) throws IOException {
-		logger.info("------ ConstraintViolationException() ");
+		logger.info("------ ConstraintViolationException() "+"asi noooooo");
+				
 		response.sendError(HttpStatus.BAD_REQUEST.value());
 	}
 	
@@ -45,7 +46,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, 
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		logger.info("------ handleMethodArgumentNotValid()");
+		logger.info("------ handleMethodArgumentNotValid()"+"asi nooooooooooooooooooooooooo");
 		
 		CustomErrorJson customError = new CustomErrorJson();
 		
