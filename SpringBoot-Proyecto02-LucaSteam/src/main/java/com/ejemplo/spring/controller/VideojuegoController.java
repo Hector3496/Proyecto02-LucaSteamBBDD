@@ -74,6 +74,12 @@ public class VideojuegoController {
 		return srv.genreByName(genre);
 	}
 	
+	@GetMapping("/editor/Nintendo")
+	public List<Videojuego> findByPublisher(String publisher){
+		publisher = "Nintendo";
+		return srv.findByPublisher(publisher);
+	}	
+	
 	@PutMapping
 	public void uploadVideojuego(@RequestBody Videojuego juego) {
 		srv.save(juego);

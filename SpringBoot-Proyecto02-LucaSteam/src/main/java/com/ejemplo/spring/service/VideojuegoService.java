@@ -24,4 +24,6 @@ public interface VideojuegoService {
 	public List<Videojuego> editorByName(String publisher);
 	
 	public List<Videojuego> genreByName(String genre);
+	
+	public List<Videojuego> findByPublisher(String publisher);
 }
